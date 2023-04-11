@@ -1,15 +1,9 @@
 <?php
+include 'functions.php';
+
 if (isset($_GET['lunghezza'])) {
     $lunghezza = $_GET['lunghezza'];
     $my_password = generatePassword($lunghezza);
-};
-function generatePassword($lunghezza){
-    $comb = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?~@#-_+<>[]{}';
-    $new_password = '';
-    for ($i = 0; $i < $lunghezza; $i++) {
-        $new_password .= $comb[rand(0, strlen($comb) - 1)];
-    }
-    return $new_password;
 };
 ?>
 
@@ -35,7 +29,7 @@ function generatePassword($lunghezza){
                 <input type="number" name="lunghezza" min="5" max="20" class="form-control mx-2" id="lunghezza" placeholder="Lunghezza">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Invia</button>
             </div>
-            <div> La tua password è: <?php echo $my_password ?> </div>
+            <div><?php echo " La tua password è: $my_password" ?></div>
         </form>
     </main>
 
